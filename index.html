@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="./styles.css">
+<script src="./ThemeController.js"></script>
+<html>
+    <body>
+        <p id="currentTheme"></p>
+
+        <script>
+            const themes = {
+                "Light": {
+                    "main-color": "hsl(0, 0%, 13%)",
+                    "text-color": "black",
+                    "line-color": "hsl(267, 95%, 76%)",
+                    "alt-color": "hsl(0, 0%, 66%)"
+                },
+                "Dark": {
+                    "main-color": "hsl(0, 0%, 90%)",
+                    "text-color": "white",
+                    "line-color": "hsl(267, 95%, 76%)",
+                    "alt-color": "hsl(0, 0%, 66%)"
+                }
+            }
+            let currentTheme = "Light";
+
+            document.addEventListener('themeChange', eve => {
+                currentTheme = eve.detail.theme;
+                console.log(`Theme: ${currentTheme}`);
+                document.getElementById("currentTheme").innerHTML = currentTheme;
+            })
+            document.getElementById("currentTheme").innerHTML = currentTheme;
+            var test = new ThemeController(themes, "Light");
+
+            const switchTheme = (theme) => {
+                test.setTheme(theme);
+            }
+        </script>
+        <button onclick="switchTheme(currentTheme === 'Dark' ? 'Light' : 'Dark')">Test</button>
+    </body>
+</html>

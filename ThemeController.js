@@ -9,8 +9,15 @@ class ThemeController {
         });
     }
 
+    doesThemeExist(theme) {
+        return this.ThemeList.includes(theme);
+    }
+
     setTheme(theme) {
         try {
+            if (!this.doesThemeExist(theme)) {
+                throw new Error(`Theme ${theme} does not exist`);
+            }
             Object.keys(this.Themes[theme]).forEach(el => {
                 document.documentElement.style.setProperty(`--${el}`, this.Themes[theme][el]);
             });
@@ -29,11 +36,11 @@ class ThemeController {
         }
     }
 
-    getTheme() {
+    get theme() {
         return this.CurrentTheme;
     }
 
-    getThemeList() {
+    get themeList() {
         return this.ThemeList;
     }
 }

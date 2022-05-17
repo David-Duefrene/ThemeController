@@ -1,6 +1,33 @@
-import './style.css'
+import ThemeController from './ThemeController';
+import './styles.css'
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+const themes = {
+    "Light": {
+        "main-color": "hsl(0, 0%, 13%)",
+        "text-color": "black",
+        "line-color": "hsl(267, 95%, 76%)",
+        "alt-color": "hsl(0, 0%, 66%)"
+    },
+    "Dark": {
+        "main-color": "hsl(0, 0%, 90%)",
+        "text-color": "white",
+        "line-color": "hsl(267, 95%, 76%)",
+        "alt-color": "hsl(0, 0%, 66%)"
+    }
+}
+let currentTheme = "Light";
+document.getElementById("currentTheme").innerHTML = currentTheme;
+
+document.addEventListener('themeChange', eve => {
+    currentTheme = eve.detail.theme;
+    console.log(`Theme: ${currentTheme}`);
+    document.getElementById("currentTheme").innerHTML = currentTheme;
+})
+
+let theme_controller = new ThemeController(themes, currentTheme);
+
+const switchTheme = () => {
+    theme_controller.setTheme(currentTheme == "Light" ? "Dark" : "Light");
+}
+
+document.getElementById("ChangeThemeButton").addEventListener("click", switchTheme);

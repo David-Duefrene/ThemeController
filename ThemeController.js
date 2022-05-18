@@ -1,19 +1,27 @@
 export default class ThemeController {
     constructor(themeLists, startTheme = 'None', updateThemeCallback = () => {}) {
         this.Themes = themeLists;
-        this.ThemeList = Object.keys(themeLists);
         this.CurrentTheme = startTheme;
-        this.updateThemeCallback = updateThemeCallback; // TODO get this working
+        this.updateThemeCallback = updateThemeCallback;
+
         Object.keys(this.Themes[startTheme]).forEach(el => {
             document.documentElement.style.setProperty(`--${el}`, this.Themes[startTheme][el]);
         });
     }
 
     doesThemeExist(theme) {
-        return this.ThemeList.includes(theme);
+        return this.themeList.includes(theme);
     }
 
-    setTheme(theme) {
+    addNewTheme(theme) {
+        const themeName = Object.keys(theme)[0];
+        if (this.doesThemeExist(themeName)) {
+            throw new Error(`Theme ${themeName} already exists`);
+        }
+        this.Themes = { ...theme, ...this.Themes };
+    }
+
+    set theme(theme) {
         if (!this.doesThemeExist(theme)) {
             throw new Error(`Theme ${theme} does not exist`);
         }
@@ -36,6 +44,6 @@ export default class ThemeController {
     }
 
     get themeList() {
-        return this.ThemeList;
+        return Object.keys(this.Themes);
     }
 }

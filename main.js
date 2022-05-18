@@ -27,7 +27,7 @@ document.addEventListener('themeChange', eve => {
 let theme_controller = new ThemeController(themes, currentTheme);
 
 const switchTheme = () => {
-    theme_controller.setTheme(currentTheme == "Light" ? "Dark" : "Light");
+    theme_controller.theme = currentTheme == "Light" ? "Dark" : "Light";
 }
 
 document.getElementById("ChangeThemeButton").addEventListener("click", switchTheme);

@@ -6,18 +6,8 @@ describe('ThemeController', () => {
     let themeController;
     beforeEach(() => {
         const themes = {
-            "Light": {
-                "main-color": "hsl(0, 0%, 13%)",
-                "text-color": "black",
-                "line-color": "hsl(267, 95%, 76%)",
-                "alt-color": "hsl(0, 0%, 66%)"
-            },
-            "Dark": {
-                "main-color": "hsl(0, 0%, 90%)",
-                "text-color": "white",
-                "line-color": "hsl(267, 95%, 76%)",
-                "alt-color": "hsl(0, 0%, 66%)"
-            }
+            "Light": { "main-color": "white" },
+            "Dark": { "main-color": "black" }
         }
         themeController = new ThemeController(themes, "Light");
     });
@@ -38,20 +28,32 @@ describe('ThemeController', () => {
         });
     });
 
-    describe('setTheme', () => {
+    describe('addNewTheme', () => {
+        test('should add a new theme', () => {
+            themeController.addNewTheme({ "NewTheme": { "main-color": "red" } });
+            expect(themeController.doesThemeExist('NewTheme')).toBe(true);
+        });
+
+        test('should throw an error if theme already exists', () => {
+            expect(() => themeController.addNewTheme({ "Light": { "main-color": "white" } }))
+                .toThrowError(`Theme Light already exists`);
+        });
+    });
+
+    describe('set theme', () => {
         test('should set the theme to the theme specified', () => {
-            themeController.setTheme('Dark');
+            themeController.theme = 'Dark';
             expect(themeController.theme).toBe('Dark');
         });
 
         test('should throw an error if the theme does not exist', () => {
-            expect(() => themeController.setTheme('NotATheme')).toThrowError('Theme NotATheme does not exist');
+            expect(() => themeController.theme = 'NotATheme').toThrowError('Theme NotATheme does not exist');
         });
     });
 
     describe('get theme', () => {
         test('should return the current theme', () => {
-            themeController.setTheme('Dark');
+            themeController.theme = 'Dark';
             expect(themeController.theme).toBe('Dark');
         });
     });

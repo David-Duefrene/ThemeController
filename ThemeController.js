@@ -21,6 +21,13 @@ export default class ThemeController {
         this.Themes = { ...theme, ...this.Themes };
     }
 
+    deleteTheme(theme) {
+        if (!this.doesThemeExist(theme)) {
+            throw new Error(`Theme ${theme} does not exist`);
+        }
+        delete this.Themes[theme];
+    }
+
     set theme(theme) {
         if (!this.doesThemeExist(theme)) {
             throw new Error(`Theme ${theme} does not exist`);

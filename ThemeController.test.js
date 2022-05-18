@@ -40,6 +40,18 @@ describe('ThemeController', () => {
         });
     });
 
+    describe('deleteTheme', () => {
+        test('should delete a theme', () => {
+            themeController.deleteTheme('Light');
+            expect(themeController.doesThemeExist('Light')).toBe(false);
+        });
+
+        test('should throw an error if theme does not exist', () => {
+            expect(() => themeController.deleteTheme('NotATheme'))
+                .toThrowError(`Theme NotATheme does not exist`);
+        });
+    });
+
     describe('set theme', () => {
         test('should set the theme to the theme specified', () => {
             themeController.theme = 'Dark';

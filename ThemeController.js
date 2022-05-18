@@ -28,7 +28,7 @@ export default class ThemeController {
         delete this.Themes[theme];
     }
 
-    set updateTheme(theme) {
+    updateTheme(theme) {
         const themeName = Object.keys(theme)[0];
         if (!this.doesThemeExist(themeName)) {
             throw new Error(`Theme ${themeName} does not exist`);
@@ -39,13 +39,9 @@ export default class ThemeController {
             document.documentElement.style.setProperty(`--${el}`, this.Themes[themeName][el]);
         });
 
-        // create the event
-        let themeChange = new CustomEvent('themeUpdated', {
-            detail: { theme }
-        });
-        // dispatch the event
-        document.dispatchEvent(themeChange);
-        this.updateThemeCallback(themeName);
+        if (this.CurrentTheme === themeName) {
+            this.theme = themeName;
+        }
     }
 
     set theme(theme) {

@@ -1,4 +1,4 @@
-class ThemeController {
+export default class ThemeController {
     constructor(themeLists, startTheme = 'None', updateThemeCallback = () => {}) {
         this.Themes = themeLists;
         this.ThemeList = Object.keys(themeLists);
@@ -9,31 +9,33 @@ class ThemeController {
         });
     }
 
-    setTheme(theme) {
-        try {
-            Object.keys(this.Themes[theme]).forEach(el => {
-                document.documentElement.style.setProperty(`--${el}`, this.Themes[theme][el]);
-            });
-            this.CurrentTheme = theme;
-            this.updateThemeCallback(theme);
-
-            // create the event
-            let themeChange = new CustomEvent('themeChange', {
-                detail: { theme: theme }
-            });
-            // dispatch the event
-            document.dispatchEvent(themeChange);
-        }
-        catch (e) {
-            console.log(e);
-        }
+    doesThemeExist(theme) {
+        return this.ThemeList.includes(theme);
     }
 
-    getTheme() {
+    setTheme(theme) {
+        if (!this.doesThemeExist(theme)) {
+            throw new Error(`Theme ${theme} does not exist`);
+        }
+        Object.keys(this.Themes[theme]).forEach(el => {
+            document.documentElement.style.setProperty(`--${el}`, this.Themes[theme][el]);
+        });
+        this.CurrentTheme = theme;
+        this.updateThemeCallback(theme);
+
+        // create the event
+        let themeChange = new CustomEvent('themeChange', {
+            detail: { theme }
+        });
+        // dispatch the event
+        document.dispatchEvent(themeChange);
+    }
+
+    get theme() {
         return this.CurrentTheme;
     }
 
-    getThemeList() {
+    get themeList() {
         return this.ThemeList;
     }
 }

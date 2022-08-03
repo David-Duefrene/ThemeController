@@ -1,5 +1,7 @@
+import { ThemeList, } from './Interfaces'
+
 export default class ThemeController {
-	Themes: any
+	Themes: ThemeList
 	CurrentTheme: string
 	updateThemeCallback: (x: string) => void
 

@@ -37,15 +37,13 @@ export default class ThemeController {
         if (!this.doesThemeExist(themeName)) {
             throw new Error(`Theme ${themeName} does not exist`);
         }
-        this.Themes[themeName] = { ...this.Themes[themeName], ...theme[themeName]};
+        this.Themes[themeName] = theme[themeName];
 
         Object.keys(this.Themes[themeName]).forEach(el => {
             document.documentElement.style.setProperty(`--${el}`, this.Themes[themeName][el]);
         });
 
-        if (this.CurrentTheme === themeName) {
-            this.theme = themeName;
-        }
+		this.theme = themeName;
     }
 
     set theme(theme) {

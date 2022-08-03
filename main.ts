@@ -18,8 +18,9 @@ const themes = {
 let currentTheme = "Light";
 document.getElementById("currentTheme").innerHTML = currentTheme;
 
-document.addEventListener('themeChange', eve => {
+document.addEventListener('themeChange', (eve: any) => {
     currentTheme = eve.detail.theme;
+    console.table(eve);
     console.log(`Theme: ${currentTheme}`);
     document.getElementById("currentTheme").innerHTML = currentTheme;
 })

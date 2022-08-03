@@ -54,12 +54,12 @@ describe('ThemeController', () => {
 
     describe('set updateTheme', () => {
         test('should set the theme', () => {
-            themeController.updateTheme = { "Dark": { "main-color": "red" } };
+            themeController.updateTheme({ "Dark": { "main-color": "red" } });
             expect(themeController.Themes['Dark']["main-color"]).toBe("red");
         });
 
         test('should throw an error if theme does not exist', () => {
-            expect(() => themeController.updateTheme = { "NotATheme": { "main-color": "red" } })
+            expect(() => themeController.updateTheme({ "NotATheme": { "main-color": "red" } }))
                 .toThrowError(`Theme NotATheme does not exist`);
         });
     });

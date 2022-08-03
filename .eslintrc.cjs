@@ -85,7 +85,7 @@ module.exports = {
 		'space-before-blocks': [ 'error', 'always', ],
 		'space-in-parens': [ 'error', 'never', ],
 		'space-unary-ops': [ 'error', { words: true, nonwords: false, }, ],
-		'switch-colon-space': [ 'error', { after: true, before: false, }, ],
+		// 'switch-colon-space': [ 'error', { after: true, before: false, }, ],
 		'template-curly-spacing': 'error',
 	},
 }

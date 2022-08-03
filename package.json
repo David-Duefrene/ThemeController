@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "A theme controller class",
+  "main": "ThemeController.js",
   "keywords": [
     "theme",
     "themes"

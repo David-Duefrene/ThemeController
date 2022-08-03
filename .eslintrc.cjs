@@ -60,7 +60,7 @@ module.exports = {
 		indent: [ 'error', 'tab', ],
 		'jsx-quotes': [ 'error', 'prefer-single', ],
 		'key-spacing': [ 'error', { beforeColon: false, afterColon: true, }, ],
-		'keyword-spacing': [ 'error', { before: true, after: false, }, ],
+		'keyword-spacing': [ 'error', { before: true, after: true, }, ],
 		// 'line-break-style': [ 'error', 'unix', ],
 		'max-len': [ 'error', {
 			code: 120, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true,

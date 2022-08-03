@@ -19,14 +19,14 @@ export default class ThemeController {
 
 	addNewTheme(theme,) {
 		const themeName = Object.keys(theme,)[0]
-		if(this.doesThemeExist(themeName,)) {
+		if (this.doesThemeExist(themeName,)) {
 			throw new Error(`Theme ${themeName} already exists`,)
 		}
 		this.Themes = { ...theme, ...this.Themes, }
 	}
 
 	deleteTheme(theme,) {
-		if(!this.doesThemeExist(theme,)) {
+		if (!this.doesThemeExist(theme,)) {
 			throw new Error(`Theme ${theme} does not exist`,)
 		}
 		delete this.Themes[theme]
@@ -34,7 +34,7 @@ export default class ThemeController {
 
 	updateTheme(theme,) {
 		const themeName = Object.keys(theme,)[0]
-		if(!this.doesThemeExist(themeName,)) {
+		if (!this.doesThemeExist(themeName,)) {
 			throw new Error(`Theme ${themeName} does not exist`,)
 		}
 		this.Themes[themeName] = theme[themeName]
@@ -47,7 +47,7 @@ export default class ThemeController {
 	}
 
 	set theme(theme,) {
-		if(!this.doesThemeExist(theme,)) {
+		if (!this.doesThemeExist(theme,)) {
 			throw new Error(`Theme ${theme} does not exist`,)
 		}
 		Object.keys(this.Themes[theme],).forEach((el,) => {

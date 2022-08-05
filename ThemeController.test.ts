@@ -11,7 +11,7 @@ describe('ThemeController', () => {
 			'Light': { 'main-color': 'white', },
 			'Dark': { 'main-color': 'black', },
 		}
-		themeController = new ThemeController(themes, 'Light',)
+		themeController = new ThemeController(themes,)
 	},)
 
 	describe('constructor', () => {

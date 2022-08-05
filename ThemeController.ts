@@ -5,13 +5,19 @@ export default class ThemeController {
 	CurrentTheme: string
 	updateThemeCallback: (x: string) => void
 
-	constructor(themeLists, startTheme = 'None', updateThemeCallback = () => {},) {
+	constructor(themeLists, updateThemeCallback = () => {},) {
 		this.Themes = themeLists
-		this.CurrentTheme = startTheme
 		this.updateThemeCallback = updateThemeCallback
 
-		Object.keys(this.Themes[startTheme],).forEach((el,) => {
-			document.documentElement.style.setProperty(`--${el}`, this.Themes[startTheme][el],)
+		// Default theme
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)',).matches) {
+			this.CurrentTheme = 'Dark'
+		} else {
+			this.CurrentTheme = 'Light'
+		}
+
+		Object.keys(this.Themes[this.CurrentTheme],).forEach((el,) => {
+			document.documentElement.style.setProperty(`--${el}`, this.Themes[this.CurrentTheme][el],)
 		},)
 	}
 

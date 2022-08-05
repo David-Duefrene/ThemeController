@@ -8,8 +8,8 @@ describe('ThemeController', () => {
 	let themeController
 	beforeEach(() => {
 		const themes = {
-			'Light': { 'main-color': 'white', },
-			'Dark': { 'main-color': 'black', },
+			'light': { 'main-color': 'white', },
+			'dark': { 'main-color': 'black', },
 		}
 		themeController = new ThemeController(themes,)
 	},)

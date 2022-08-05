@@ -11,9 +11,9 @@ export default class ThemeController {
 
 		// Default theme
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)',).matches) {
-			this.CurrentTheme = 'Dark'
+			this.CurrentTheme = 'dark'
 		} else {
-			this.CurrentTheme = 'Light'
+			this.CurrentTheme = 'light'
 		}
 
 		Object.keys(this.Themes[this.CurrentTheme],).forEach((el,) => {

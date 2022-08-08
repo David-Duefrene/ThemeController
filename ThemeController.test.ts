@@ -8,10 +8,10 @@ describe('ThemeController', () => {
 	let themeController
 	beforeEach(() => {
 		const themes = {
-			'Light': { 'main-color': 'white', },
-			'Dark': { 'main-color': 'black', },
+			'light': { 'main-color': 'white', },
+			'dark': { 'main-color': 'black', },
 		}
-		themeController = new ThemeController(themes, 'Light',)
+		themeController = new ThemeController(themes,)
 	},)
 
 	describe('constructor', () => {
@@ -22,7 +22,7 @@ describe('ThemeController', () => {
 
 	describe('doesThemeExist', () => {
 		test('should return true if theme exists', () => {
-			expect(themeController.doesThemeExist('Dark',),).toBe(true,)
+			expect(themeController.doesThemeExist('dark',),).toBe(true,)
 		},)
 
 		test('should return false if theme does not exist', () => {
@@ -37,15 +37,15 @@ describe('ThemeController', () => {
 		},)
 
 		test('should throw an error if theme already exists', () => {
-			expect(() => themeController.addNewTheme({ 'Light': { 'main-color': 'white', }, },),)
-				.toThrowError('Theme Light already exists',)
+			expect(() => themeController.addNewTheme({ 'light': { 'main-color': 'white', }, },),)
+				.toThrowError('Theme light already exists',)
 		},)
 	},)
 
 	describe('deleteTheme', () => {
 		test('should delete a theme', () => {
-			themeController.deleteTheme('Light',)
-			expect(themeController.doesThemeExist('Light',),).toBe(false,)
+			themeController.deleteTheme('light',)
+			expect(themeController.doesThemeExist('light',),).toBe(false,)
 		},)
 
 		test('should throw an error if theme does not exist', () => {
@@ -56,8 +56,8 @@ describe('ThemeController', () => {
 
 	describe('set updateTheme', () => {
 		test('should set the theme', () => {
-			themeController.updateTheme({ 'Dark': { 'main-color': 'red', }, },)
-			expect(themeController.Themes.Dark['main-color'],).toBe('red',)
+			themeController.updateTheme({ 'dark': { 'main-color': 'red', }, },)
+			expect(themeController.Themes.dark['main-color'],).toBe('red',)
 		},)
 
 		test('should throw an error if theme does not exist', () => {
@@ -68,8 +68,8 @@ describe('ThemeController', () => {
 
 	describe('set theme', () => {
 		test('should set the theme to the theme specified', () => {
-			themeController.theme = 'Dark'
-			expect(themeController.theme,).toBe('Dark',)
+			themeController.theme = 'dark'
+			expect(themeController.theme,).toBe('dark',)
 		},)
 
 		test('should throw an error if the theme does not exist', () => {
@@ -79,14 +79,14 @@ describe('ThemeController', () => {
 
 	describe('get theme', () => {
 		test('should return the current theme', () => {
-			themeController.theme = 'Dark'
-			expect(themeController.theme,).toBe('Dark',)
+			themeController.theme = 'dark'
+			expect(themeController.theme,).toBe('dark',)
 		},)
 	},)
 
 	describe('get themeList', () => {
 		test('should return the list of themes', () => {
-			expect(themeController.themeList,).toEqual([ 'Light', 'Dark', ],)
+			expect(themeController.themeList,).toEqual([ 'light', 'dark', ],)
 		},)
 	},)
 },)

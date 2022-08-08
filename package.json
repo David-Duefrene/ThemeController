@@ -1,7 +1,25 @@
 {
   "name": "themecontroller",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "A theme controller class",
+  "main": "ThemeController.js",
+  "keywords": [
+    "theme",
+    "themes"
+  ],
+  "homepage": "https://github.com/David-Duefrene/ThemeController",
+  "author": {
+    "name": "David Duefrene"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/David-Duefrene/ThemeController"
+  },
+  "bugs": {
+    "url": "https://github.com/David-Duefrene/ThemeController/issues"
+  },
   "scripts": {
     "start": "vite",
     "test": "vitest",
@@ -14,7 +32,7 @@
     "eslint": "^8.21.0",
     "jsdom": "^19.0.0",
     "typescript": "^4.7.4",
-    "vite": "2.9.9",
+    "vite": "3.0.4",
     "vitest": "0.21.0"
   }
 }

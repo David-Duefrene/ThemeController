@@ -1,18 +1,13 @@
 import ThemeController from './ThemeController'
-import './styles.css'
 
 const themes = {
 	'dark': {
-		'main-color': 'hsl(0, 0%, 13%)',
-		'text-color': 'black',
-		'line-color': 'hsl(267, 95%, 76%)',
-		'alt-color': 'hsl(0, 0%, 66%)',
+		'main-color': 'black',
+		'text-color': 'white',
 	},
 	'light': {
-		'main-color': 'hsl(0, 0%, 90%)',
-		'text-color': 'white',
-		'line-color': 'hsl(267, 95%, 76%)',
-		'alt-color': 'hsl(0, 0%, 66%)',
+		'main-color': 'white',
+		'text-color': 'black',
 	},
 }
 

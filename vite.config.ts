@@ -7,8 +7,8 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: './ThemeController.ts',
-			name: 'MyLib',
-			fileName: 'my-lib',
+			name: 'ThemeController',
+			fileName: 'ThemeController',
 		},
 
 	},

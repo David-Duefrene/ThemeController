@@ -1,3 +1,13 @@
+![](https://img.shields.io/github/license/David-Duefrene/ThemeController)
+[![](https://img.shields.io/badge/Demo-CodeSandBox-brightgreen)](https://codesandbox.io/embed/eager-night-2mntxj?fontsize=14&hidenavigation=1&theme=dark)
+![](https://img.shields.io/github/languages/top/David-Duefrene/ThemeController)
+![](https://img.shields.io/npms-io/final-score/themecontroller)
+![](https://img.shields.io/npms-io/maintenance-score/themecontroller)
+![](https://img.shields.io/npms-io/popularity-score/themecontroller)
+![](https://img.shields.io/npms-io/quality-score/themecontroller)
+![](https://img.shields.io/github/issues-raw/David-Duefrene/ThemeController)
+![](https://img.shields.io/npm/v/themecontroller)
+
 # Theme Controller
 Theme Controller is a quick and easy theme manager.
 
@@ -42,11 +52,3 @@ Theme Controller is a quick and easy theme manager.
 </html>
 
 ```
-
-
-<iframe src="https://codesandbox.io/embed/eager-night-2mntxj?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="eager-night-2mntxj"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>

@@ -31,7 +31,7 @@
     "@typescript-eslint/parser": "5.62.0",
     "eslint": "8.45.0",
     "jsdom": "21.1.2",
-    "typescript": "5.1.6",
+    "typescript": "5.6.3",
     "vite": "4.3.9",
     "vitest": "0.34.6"
   }

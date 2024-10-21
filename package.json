@@ -27,8 +27,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.62.0",
+    "@typescript-eslint/eslint-plugin": "8.11.0",
+    "@typescript-eslint/parser": "8.11.0",
     "eslint": "8.45.0",
     "jsdom": "21.1.2",
     "typescript": "5.1.6",
